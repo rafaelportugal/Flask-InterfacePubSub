@@ -1,2 +1,2 @@
 # Flask-InterfacePubSub
-Python Package for help to send contract to Google Pub Sub.
+Python Package for help to validate and send json contract to Google Pub Sub.
