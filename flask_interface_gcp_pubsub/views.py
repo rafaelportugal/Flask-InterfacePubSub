@@ -3,7 +3,7 @@ from flask_restful import Resource as BaseRestfulResource
 from flask import request
 from jsonschema import validate, FormatChecker
 from jsonschema.exceptions import ValidationError
-from .manager import PubSub
+from .pubsub import PubSub
 from .publisher import Publisher
 
 

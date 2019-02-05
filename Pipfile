@@ -5,6 +5,7 @@ verify_ssl = true
 
 [dev-packages]
 flake8 = "==3.7.5"
+pytest = "==4.2.0"
 
 [packages]
 Flask-RESTful = "==0.3.7"
