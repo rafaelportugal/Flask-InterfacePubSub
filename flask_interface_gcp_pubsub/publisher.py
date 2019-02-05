@@ -12,21 +12,21 @@ class Publisher(metaclass=MementoMetaclass):
         When the class receives at least one of the batch configuration
         parameters, its message submission feature becomes batch.
 
-        This class need to set system environment GCP_PROJECT_ID with the name of
-        the cloud project.
+        This class need to set system environment GCP_PROJECT_ID with the name
+        of the cloud project.
 
         Args:
-            max_bytes (:obj: `int`, optional): Max bytes per batch. Batch configuration
-            parameter, if there is any batch parameter being sent and this field
-            is not passed, its initial value is: 1048576.
+            max_bytes (:obj: `int`, optional): Max bytes per batch. Batch
+            configuration parameter, if there is any batch parameter being
+            sent and this field is not passed, its initial value is: 1048576.
 
-            max_latency (:obj:`int`, optional): Max latency in seconds. Batch configuration
-            parameter, if there is any batch parameter being sent and this field
-            is not passed, its initial value is: 15.
+            max_latency (:obj:`int`, optional): Max latency in seconds. Batch
+            configuration parameter, if there is any batch parameter being sent
+            and this field is not passed, its initial value is: 15.
 
-            max_messages (:obj:`int`, optional): Max messages per batch. Batch configuration
-            parameter, if there is any batch parameter being sent and this field
-            is not passed, its initial value is: 1000.
+            max_messages (:obj:`int`, optional): Max messages per batch. Batch
+            configuration parameter, if there is any batch parameter being sent
+            and this field is not passed, its initial value is: 1000.
     """
 
     def __init__(self,
@@ -54,12 +54,12 @@ class Publisher(metaclass=MementoMetaclass):
         """This method returns the full path of the topic name
 
         Args:
-            topic_name (:obj: `string`, required): The name of the topic to publish
-            messages to.
-        
+            topic_name (:obj: `string`, required): The name of the topic to
+            publish messages to.
+
         Returns:
             Full path name of the topic required
-        
+
         Return type:
             String
         """
@@ -69,11 +69,12 @@ class Publisher(metaclass=MementoMetaclass):
         """This method returns the full path of the topic name
 
         Args:
-            topic_name (:obj: `string`, required): The name of the topic to publish
-            messages to.
-            data: A bytestring representing the message body. This must be a bytestring.
-        
-        Returns:	
+            topic_name (:obj: `string`, required): The name of the topic to
+            publish messages to.
+            data: A bytestring representing the message body. This must be a
+            bytestring.
+
+        Returns:
             An object conforming to the concurrent.futures.Future interface.
 
         Return type:

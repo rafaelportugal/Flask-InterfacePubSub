@@ -10,15 +10,15 @@ from .gcp import Publisher
 def process_message(schema, publisher, data):
     """
         Method to reuse the message processing for all the bases of the
-        gogole pub sub.
+        Google Pub/Sub.
 
         Args:
-            schema (:obj:`dict`, required): A JSON schema for border validation. 
-            JSON Schema is a vocabulary that allows you to annotate and validate
-            JSON documents.
-            publisher (:obj:`PubSub`, optional): Instance of the '.manager.PubSub'.
-            data (:obj: `dict`, required): A dictionary representing the
-                message body.
+            schema (:obj:`dict`, required): A JSON schema for border
+            validation. JSON Schema is a vocabulary that allows you
+            to annotate and validate JSON documents.
+            publisher (:obj:`PubSub`, optional): Instance of the
+            '.manager.PubSub'. data (:obj: `dict`, required):
+            A dictionary representing the message body.
     """
     try:
         data = json.loads(request.data)
@@ -34,11 +34,10 @@ class ViewSchemeAsync(BaseRestfulResource):
         Base class for sending messages to google pub sub in asynchronous way.
 
         properties:
-            topic_name (:obj: `string`, required): The name of the topic to publish
-            messages to.
-            schema (:obj:`dict`, required): A JSON schema for border validation. 
-            JSON Schema is a vocabulary that allows you to annotate and validate
-            JSON documents.
+            topic_name (:obj: `string`, required): The name of the topic to
+            publish messages to. schema (:obj:`dict`, required): A JSON schema
+            for border validation. JSON Schema is a vocabulary that allows you
+            to annotate and validate JSON documents.
     """
 
     def __init__(self, *args, **kwargs):
@@ -64,14 +63,15 @@ class ViewSchemeAsync(BaseRestfulResource):
 
 class ViewSchemeBatch(BaseRestfulResource):
     """
-        Base class for sending messages to google pub sub in asynchronous way in batch.
+        Base class for sending messages to google pub sub in asynchronous way
+        in batch.
 
         properties:
-            topic_name (:obj: `string`, required): The name of the topic to publish
-            messages to.
-            schema (:obj:`dict`, required): A JSON schema for border validation. 
-            JSON Schema is a vocabulary that allows you to annotate and validate
-            JSON documents.
+            topic_name (:obj: `string`, required): The name of the topic to
+            publish messages to.
+            schema (:obj:`dict`, required): A JSON schema for border
+            validation. JSON Schema is a vocabulary that allows you to annotate
+            and validate JSON documents.
     """
 
     def __init__(self, *args, **kwargs):
