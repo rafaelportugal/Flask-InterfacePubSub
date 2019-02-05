@@ -1,12 +1,8 @@
 import json
-
 from flask_restful import Resource as BaseRestfulResource
 from flask import request
 from jsonschema import validate, FormatChecker
 from jsonschema.exceptions import ValidationError
-
-from mementos import MementoMetaclass
-
 from .manager import PubSub
 from .gcp import Publisher
 
