@@ -1,6 +1,6 @@
 import json
 from mementos import MementoMetaclass
-from .gcp import Publisher
+from .publisher import Publisher
 
 
 class PubSub(metaclass=MementoMetaclass):

@@ -4,7 +4,7 @@ from flask import request
 from jsonschema import validate, FormatChecker
 from jsonschema.exceptions import ValidationError
 from .manager import PubSub
-from .gcp import Publisher
+from .publisher import Publisher
 
 
 def process_message(schema, publisher, data):
