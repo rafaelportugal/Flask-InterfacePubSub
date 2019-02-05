@@ -9,11 +9,11 @@ from .publisher import Publisher
 
 def process_message(schema, publisher, data):
     """
-        Method to reuse the message processing for all the bases of the
-        Google Pub/Sub.
+        Method to process messsages for all the bases that uses
+        Google's Pub/Sub.
 
         Args:
-            schema (:obj:`dict`, required): A JSON schema for border
+            schema (:obj:`dict`, required): A JSON schema for contract
             validation. JSON Schema is a vocabulary that allows you
             to annotate and validate JSON documents.
             publisher (:obj:`PubSub`, optional): Instance of the
@@ -31,13 +31,14 @@ def process_message(schema, publisher, data):
 
 class ViewSchemeAsync(BaseRestfulResource):
     """
-        Base class for sending messages to google pub sub in asynchronous way.
+        Base class to send messages to Google's Pub/Sub asynchronously.
 
         properties:
             topic_name (:obj: `string`, required): The name of the topic to
-            publish messages to. schema (:obj:`dict`, required): A JSON schema
-            for border validation. JSON Schema is a vocabulary that allows you
-            to annotate and validate JSON documents.
+            publish messages to.
+            schema (:obj:`dict`, required): A JSON schema for contract
+            validation. JSON Schema is a vocabulary that allows you to annotate
+            and validate JSON documents.
     """
 
     def __init__(self, *args, **kwargs):
@@ -49,7 +50,7 @@ class ViewSchemeAsync(BaseRestfulResource):
 
     def get(self):
         """
-            Return information with schema for request.
+            Returns information with schema for request.
         """
         return self.schema, 200
 
@@ -63,13 +64,13 @@ class ViewSchemeAsync(BaseRestfulResource):
 
 class ViewSchemeBatch(BaseRestfulResource):
     """
-        Base class for sending messages to google pub sub in asynchronous way
+        Base class to send messages to Google's Pub/Sub asynchronously
         in batch.
 
         properties:
             topic_name (:obj: `string`, required): The name of the topic to
             publish messages to.
-            schema (:obj:`dict`, required): A JSON schema for border
+            schema (:obj:`dict`, required): A JSON schema for contract
             validation. JSON Schema is a vocabulary that allows you to annotate
             and validate JSON documents.
     """
@@ -87,13 +88,13 @@ class ViewSchemeBatch(BaseRestfulResource):
 
     def get(self):
         """
-            Return information with schema for request.
+            Returns information with schema for request.
         """
         return self.schema, 200
 
     def post(self):
         """
-            If json body message is valid, create on google pub sub this
-            data.
+            If a JSON body message is valid, create
+            this message on Google's Pub/Sub.
         """
         return process_message(self.schema, self.publisher, request.data)

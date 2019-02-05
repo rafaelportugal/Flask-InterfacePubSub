@@ -5,28 +5,28 @@ from mementos import MementoMetaclass
 
 class Publisher(metaclass=MementoMetaclass):
     """
-        Base class that uses the partner multiton, for help the publish message
-        on Google Pub Sub. This instance return same memory address when
-        parameters are equals.
+        Base class that uses the multiton design pattern, to help publishing
+        messages on Google's Pub/Sub. An instance of this class returns the
+        same memory address when the parameters in the constructor are equals.
 
-        When the class receives at least one of the batch configuration
-        parameters, its message submission feature becomes batch.
+        When this class receives at least one of the batch configuration
+        parameters, its message submission feature occour in batch.
 
-        This class need to set system environment GCP_PROJECT_ID with the name
-        of the cloud project.
+        In order to use this class, you need to set the system environment
+        variable 'GCP_PROJECT_ID' with the name of your cloud project.
 
         Args:
             max_bytes (:obj: `int`, optional): Max bytes per batch. Batch
             configuration parameter, if there is any batch parameter being
-            sent and this field is not passed, its initial value is: 1048576.
+            sent and this field is not passed, default value is: 1048576.
 
             max_latency (:obj:`int`, optional): Max latency in seconds. Batch
             configuration parameter, if there is any batch parameter being sent
-            and this field is not passed, its initial value is: 15.
+            and this field is not passed, default value is: 15.
 
             max_messages (:obj:`int`, optional): Max messages per batch. Batch
             configuration parameter, if there is any batch parameter being sent
-            and this field is not passed, its initial value is: 1000.
+            and this field is not passed, default value is: 1000.
     """
 
     def __init__(self,

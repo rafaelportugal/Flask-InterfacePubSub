@@ -5,19 +5,20 @@ from .publisher import Publisher
 
 class PubSub(metaclass=MementoMetaclass):
     """
-        Base class that uses the partner multiton, for manager the publish
-        message on using a publisher class on specific topic. This instance
-        return same memory address when parameters are equals.
+        Base class that uses the multiton design pattern, to publish
+        messages on using a publisher class at a specific topic. An
+        instance of this class returns the same memory address when
+        the parameters in the constructor are equals.
 
         Args:
             topic_name (:obj: `string`, required): The name of the topic to
             publish messages to.
 
             publisher (:obj:`Publisher`, optional): Instance of the Publisher.
-            This object using of the concept Duck typing. In duck typing, an
+            This object uses the concept of Duck typing. In duck typing, an
             object's suitability is determined by the presence of certain
             methods and properties, rather than the type of the object itself.
-            This case, need to the presence of the method 'publish'.
+            In this case, we need to the presence of the method 'publish'.
     """
 
     def __init__(self, topic_name, publisher=Publisher()):
