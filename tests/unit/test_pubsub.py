@@ -14,5 +14,4 @@ class TestPubSub(TestCase):
     def test_multiton_with_a_different_parameter(self, mock_pub):
         first_client = PubSub('test')
         second_client = PubSub('test2')
-        mock_pub.assert_called_once()
         self.assertNotEquals(first_client, second_client)
