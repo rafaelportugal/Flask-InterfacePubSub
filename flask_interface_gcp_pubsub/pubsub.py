@@ -21,9 +21,9 @@ class PubSub(metaclass=MementoMetaclass):
             In this case, we need to the presence of the method 'publish'.
     """
 
-    def __init__(self, topic_name, publisher=Publisher()):
+    def __init__(self, topic_name, publisher=None):
         self.topic_name = topic_name
-        self.publisher = publisher
+        self.publisher = publisher or Publisher()
 
     def publish(self, data):
         """
