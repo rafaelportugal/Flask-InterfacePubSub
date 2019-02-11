@@ -12,10 +12,12 @@ class Publisher(metaclass=MementoMetaclass):
         When this class receives at least one of the batch configuration
         parameters, its message submission feature occour in batch.
 
-        In order to use this class, you need to set the system environment
-        variable 'GCP_PROJECT_ID' with the name of your cloud project.
-
         Args:
+            project_id (:obj: `str`, optioanl): The name of the project
+            at GCP. Can also be provided by defining a value for the
+            system environment variable 'GCP_PROJECT_ID' with the name
+            of your cloud project.
+
             max_bytes (:obj: `int`, optional): Max bytes per batch. Batch
             configuration parameter, if there is any batch parameter being
             sent and this field is not passed, default value is: 1048576.
@@ -30,12 +32,13 @@ class Publisher(metaclass=MementoMetaclass):
     """
 
     def __init__(self,
+                 project_id=None,
                  max_bytes=None,
                  max_latency=None,
                  max_messages=None,
                  *args,
                  **kwargs):
-        self.project_id = os.environ["GCP_PROJECT_ID"]
+        self.project_id = project_id or os.environ["GCP_PROJECT_ID"]
 
         if max_bytes or max_latency or max_messages:
             settings = {
