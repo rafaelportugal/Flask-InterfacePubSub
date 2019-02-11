@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import re
-import sys
 from os import path
 from setuptools import setup, find_packages
 
@@ -23,13 +22,16 @@ with open(version_file, "r") as fp:
     m = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]", fp.read(), re.M)
     version = m.groups(1)[0]
 
+description = "Package to help sending messages that implements a contract" \
+              "to Google's Pub/Sub.",
+
 setup(
     name="Flask-InterfacePubSub",
     version=version,
     author="Rafael Portugal",
     license="MIT",
     author_email="rafaelportugal05@gmail.com",
-    description="Package for help to send contract to Google Pub Sub.",
+    description=description,
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/rafaelportugal/Flask-InterfacePubSub",
